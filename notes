@@ -1,0 +1,3 @@
+import logo from './img/disc25.jpg';
+
+<img src={logo} className="App-logo" alt="logo" />
