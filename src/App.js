@@ -1,4 +1,5 @@
 import './App.scss';
+import FormDisc from './components/FormDisc'
 
 function App() {
 	return (
@@ -6,6 +7,7 @@ function App() {
 			<header className="app-header">
 				<h1> Calculadora de discos </h1>
 			</header>
+			<FormDisc />
 		</div>
 	);
 }
