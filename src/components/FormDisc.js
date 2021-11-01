@@ -36,22 +36,27 @@ const FormDisc = () => {
             switch (true) {
                 case (weightTotal >= 50 && numDisc25 > 0):
                     weightTotal -= 50;
+                    numDisc25 -= 1;
                     generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-25"></div>');
                     break;
                 case (weightTotal >= 40 && numDisc20 > 0):
                     weightTotal -= 40;
+                    numDisc20 -= 1;
                     generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-20"></div>');
                     break;
                 case (weightTotal >= 30 && numDisc15 > 0):
                     weightTotal -= 30;
+                    numDisc15 -= 1;
                     generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-15"></div>');
                     break;
                 case (weightTotal >= 20 && numDisc10 > 0):
                     weightTotal -= 20;
+                    numDisc10 -= 1;
                     generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-10"></div>');
                     break;
                 case (weightTotal >= 10 && numDisc5 > 0):
                     weightTotal -= 10;
+                    numDisc5 -= 1;
                     generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-5"></div>');
                     break;
                 case (weightTotal >= 5):
