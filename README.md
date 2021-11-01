@@ -4,4 +4,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ##  Disc calculator 
 
-![Captura](https://user-images.githubusercontent.com/29003528/139731267-ebb8b10a-19e0-4910-a1a6-f000c27345ee.JPG)
+![Captura](https://user-images.githubusercontent.com/29003528/139752065-a4c23d4f-e8e7-40f1-aa45-b5c80b110ec1.JPG)
