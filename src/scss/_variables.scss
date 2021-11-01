@@ -1,2 +1,39 @@
-//--bg-color: #{$bg-color};
-$bg-color: #282C34;
+$margin-disc: 4px 2px 4px 2px;
+$color-disc-25: #800000;
+$color-disc-20: #000080;
+$color-disc-15: #808000;
+$color-disc-10: #008000;
+$color-disc-5: #C0C0C0;
+$color-disc-2-5: #111;
+$color-disc-1-25: #808080;
+$color-disc-bumper: #000;
+$color-disc-collar: #8A9597;
+$color-bg-dark: #282C34;
+$color-font-dark: #FBFCFC;
+$body-font: 'Roboto', sans-serif;
+$normal-font-size: 1rem;
+$small-font-size: .8rem;
+$form-first-color: #660000;
+$form-input-color: #FF0;
+$border-color: #DADCE0;
+
+:root {
+    --margin-disc: #{$margin-disc};
+    --color-disc-25: #{$color-disc-25};
+    --color-disc-20: #{$color-disc-20};
+    --color-disc-15: #{$color-disc-15};
+    --color-disc-10: #{$color-disc-10};
+    --color-disc-5: #{$color-disc-5};
+    --color-disc-2-5: #{$color-disc-2-5};
+    --color-disc-1-25: #{$color-disc-1-25};
+    --color-disc-bumper: #{$color-disc-bumper};
+    --color-disc-collar: #{$color-disc-collar};
+    --color-bg-dark: #{$color-bg-dark};
+    --color-font-dark: #{$color-font-dark};
+    --body-font: #{$body-font};
+    --normal-font-size: #{$normal-font-size};
+    --small-font-size: #{$small-font-size};
+    --form-first-color: #{$form-first-color};
+    --form-input-color: #{$form-input-color};
+    --border-color: #{$border-color};
+}

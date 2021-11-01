@@ -5,7 +5,7 @@ function App() {
 	return (
 		<div className="app">
 			<header className="app-header">
-				<h1> Calculadora de discos </h1>
+				<h1 className="app-header-title"> Disc calculator </h1>
 			</header>
 			<FormDisc />
 		</div>

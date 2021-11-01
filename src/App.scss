@@ -1,10 +1,21 @@
-.app {
-  	display: flex;
-	flex-direction: column;
-	color: #FFF;
-}
+@import "./scss/variables";
 
-.app-header h1 {
-	text-align: center;
-	size: 1rem;
+.app {
+	//display: flex;
+	//flex-flow: column nowrap;
+	//justify-content: center;
+	//align-items: center;
+	//align-content: center;
+	padding: 1rem .5rem;
+	border: red solid 1px;
+	&-header {
+		h1{
+			margin: 0;
+		}
+		&-title {
+			font-weight: 400;
+			margin-bottom: 2rem;
+			text-align: center;
+		}
+	}
 }
