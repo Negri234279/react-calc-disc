@@ -115,6 +115,10 @@ const FormDisc = () => {
                             <option value="1"> Disc's 25 - 1 </option>
                             <option value="3"> Disc's 25 - 3 </option>
                             <option value="4"> Disc's 25 - 4 </option>
+                            <option value="5"> Disc's 25 - 5 </option>
+                            <option value="6"> Disc's 25 - 6 </option>
+                            <option value="7"> Disc's 25 - 7 </option>
+                            <option value="8"> Disc's 25 - 8 </option>
                         </select>
                     </div>
 
@@ -126,6 +130,8 @@ const FormDisc = () => {
                             <option value="1"> Disc's 20 - 1 </option>
                             <option value="3"> Disc's 20 - 3 </option>
                             <option value="4"> Disc's 20 - 4 </option>
+                            <option value="5"> Disc's 20 - 5 </option>
+                            <option value="6"> Disc's 20 - 6 </option>
                         </select>
                     </div>
 
