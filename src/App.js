@@ -1,5 +1,6 @@
 import './App.scss';
 import FormDisc from './components/FormDisc'
+import DiscContainer from './components/DiscContainer'
 
 function App() {
 	return (
@@ -8,6 +9,7 @@ function App() {
 				<h1 className="app-header-title"> Disc calculator </h1>
 			</header>
 			<FormDisc />
+			<DiscContainer />
 		</div>
 	);
 }
