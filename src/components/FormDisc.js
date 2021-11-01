@@ -12,13 +12,10 @@ const FormDisc = () => {
 
     const onSubmit = (data) => {        
         console.clear();
-        //console.log(data);
-        //console.log(data.weightBar);
-        //console.log(data.weightTotal);
-        let weightTotal = data.weightTotal - data.weightBar;
-        console.log(weightTotal);
 
-        let generateDisc = document.querySelector("#container-disc");
+        let weightTotal = data.weightTotal - data.weightBar,
+            generateDisc = document.querySelector("#container-disc");
+
         generateDisc.textContent = "";
 
         while (weightTotal > -1) {
@@ -67,29 +64,29 @@ const FormDisc = () => {
                 <div>            
                     <label
                         className="form-label">
-                        Peso barra
+                        Bar weight
                     </label>
                     <input
                         type="number"
                         defaultValue="20"
                         {...register("weightBar", { required: true })}
                     />
-                    {errors.weightBar && <p> Campo requerido </p>}
+                    {errors.weightBar && <p> This field is required </p>}
                 </div>
                 {/* Peso Total */}
                 <div>
                     <label
                         className="form-label">
-                        Peso Total
+                        Total weight
                     </label>
                     <input type="number" {...register("weightTotal", { required: true })} />
-                    {errors.weightTotal && <p> Campo requerido </p>}
+                    {errors.weightTotal && <p> This field is required </p>}
                 </div>
 
                 <div>
                     <input
                         type="submit"
-                        value="Calcular"
+                        value="Calculate"
                     />
                 </div>
             </form>            
