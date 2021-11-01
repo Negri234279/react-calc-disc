@@ -29,27 +29,27 @@ const FormDisc = () => {
                     break;
                 case (weightTotal >= 40):
                     weightTotal -= 40;
-                    console.log("Disc 20");
+                    generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-20"></div>');
                     break;
                 case (weightTotal >= 30):
                     weightTotal -= 30;
-                    console.log("Disc 15");
+                    generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-15"></div>');
                     break;
                 case (weightTotal >= 20):
                     weightTotal -= 20;
-                    console.log("Disc 10");
+                    generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-10"></div>');
                     break;
                 case (weightTotal >= 10):
                     weightTotal -= 10;
-                    console.log("Disc 5");
+                    generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-5"></div>');
                     break;
                 case (weightTotal >= 5):
                     weightTotal -= 5;
-                    console.log("Disc 2");
+                    generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-2"></div>');
                     break;
                 case (weightTotal >= 2.5 || weightTotal >= 2):
                     weightTotal -= 2.5;
-                    console.log("Disc 1");
+                    generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-1"></div>');
                     break;
                 default:
                     console.log("Break");
@@ -70,6 +70,7 @@ const FormDisc = () => {
                         Peso barra
                     </label>
                     <input
+                        type="number"
                         defaultValue="20"
                         {...register("weightBar", { required: true })}
                     />
@@ -81,7 +82,7 @@ const FormDisc = () => {
                         className="form-label">
                         Peso Total
                     </label>
-                    <input {...register("weightTotal", { required: true })} />
+                    <input type="number" {...register("weightTotal", { required: true })} />
                     {errors.weightTotal && <p> Campo requerido </p>}
                 </div>
 

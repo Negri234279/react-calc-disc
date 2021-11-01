@@ -1,14 +1,26 @@
 //@import "./variables";
 
+$margin-disc: 4px 2px;
+$color-disc-25: #800000;
+$color-disc-20: #000080;
+$color-disc-15: #808000;
+$color-disc-10: #008000;
+$color-disc-5: #C0C0C0;
+$color-disc-2-5: #111;
+$color-disc-1-25: #808080;
+$color-disc-bumper: #000;
+$color-disc-collar: #8A9597;
+
 #container {
     &-disc {
         display: flex;
         flex-flow: row nowrap;
         justify-content: center;
         align-items: center;
-        background: rgb(65, 65, 65);
-        width: 100%;
-        margin: 0rem 2rem;
+        //background: rgb(65, 65, 65);
+        //background: #24272e;
+        max-width: 300px;
+        margin: 0 auto;
         //border: red 1px solid;
         
         &-25 {
@@ -16,7 +28,7 @@
             width: 24px;
             height: 250px;
             border-radius: 2px;
-            margin: $margin-disc; 
+            margin: 4px 2px 4px 2px; 
         }
 
         &-20 {
