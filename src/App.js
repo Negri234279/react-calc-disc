@@ -1,17 +1,17 @@
-import './App.scss';
-import FormDisc from './components/FormDisc'
-import DiscContainer from './components/DiscContainer'
+import { Fragment } from 'react';
+import CalcDisc from './pages/CalcDisc';
 
-function App() {
+const App = () => {
+
 	return (
-		<div className="app">
-			<header className="app-header">
-				<h1 className="app-header-title"> Disc calculator </h1>
-			</header>
-			<FormDisc />
-			<DiscContainer />
-		</div>
+
+		<Fragment>
+			<CalcDisc />
+			
+		</Fragment>
+
 	);
+
 }
 
 export default App;
