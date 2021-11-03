@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import '../scss/header.scss';
+import '../styles/header.scss';
 
 const Header = (props) => {
 

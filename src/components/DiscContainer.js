@@ -1,6 +1,5 @@
 import React from "react";
-//import '../scss/varibles.scss';
-import '../scss/discContainer.scss';
+import '../styles/discContainer.scss';
 
 const DiscContainer = () => {
 

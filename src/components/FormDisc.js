@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import '../scss/formDisc.scss';
+import '../styles/formDisc.scss';
 
 const FormDisc = () => {
 
@@ -11,7 +11,7 @@ const FormDisc = () => {
     } = useForm();
 
     const onSubmit = (data) => {        
-        console.clear();
+        //console.clear();
 
         let weightTotal = data.weightTotal - data.weightBar,
             generateDisc = document.querySelector("#container-disc"),
@@ -68,7 +68,7 @@ const FormDisc = () => {
                     generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-1"></div>');
                     break;
                 default:
-                    console.log("Break");
+                    //console.log("Break");
                     weightTotal = -1;
                     break;
             }
