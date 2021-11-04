@@ -1,0 +1,24 @@
+.noMatch {
+    padding: 40px 20px;
+    img {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+    }
+    a {
+        color: #FFF;
+        text-decoration: none;
+        padding: 10px 40px;
+        background: #222;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            background: #2F2F2F;
+        }
+    }
+}
