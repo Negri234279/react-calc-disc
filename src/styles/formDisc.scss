@@ -47,7 +47,7 @@
             color: white;
             text-transform: uppercase;
             border: none;
-            margin-top: 20px;
+            margin-top: 10px;
             padding: 15px;
             font-size: .9rem;
             font-weight: 100;
@@ -67,30 +67,11 @@
 
     }
 
-    .radius {
-        display: grid;
-        grid-template-columns: 50px 30px 75px 30px;
-        grid-template-rows: auto;
-        &-1, &-2, &-3, &-4 {
-            justify-self: stretch;
-            align-self: center;
-        }
-
-        input {
-            margin: 0;
-            padding: 0;
-        }
-
-        &[type="radio"] {
-            width: 10px;
-        }
-    }
-
     .halfSelect {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
-        margin-top: 20px;
+        margin-top: 10px;
         select {
             display: block;
             box-sizing: border-box;
@@ -103,6 +84,14 @@
         }
     }
     
+}
+
+.switch {    
+    display: flex;
+    margin-top: 10px;
+    label {
+        margin: 0px 10px 0px 0px;
+    }
 }
 
 .ocult {

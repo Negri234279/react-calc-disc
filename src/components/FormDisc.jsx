@@ -239,11 +239,16 @@ const FormDisc = () => {
                         {errors.weightTotal && <p> This field is required </p>}
                     </div>
 
-                    <Switch
-                        onChange={handleChange}
-                        checked={checked}
-                        className="react-switch"
-                    />
+                    <div className="switch">                        
+                        <div> <label> Advanced option: </label> </div>
+                        <div>
+                            <Switch
+                                onChange={handleChange}
+                                checked={checked}
+                                onColor="#BF1650"
+                            />
+                        </div>
+                    </div>
 
                     {advanOpt === 0 && <SimpleOpt /> }
                     {advanOpt === 1 && <AdvanOpt /> }
