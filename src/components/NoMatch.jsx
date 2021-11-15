@@ -10,7 +10,7 @@ const NoMatch = () => {
                 <img src="https://sitethemedata.com/pages/404/img/icon-404.svg" alt="404"></img>
             </div>
             <div className="noMatch">
-                <Link to="/">Go to the home page</Link>
+                <Link to="/"> Go to the home page </Link>
             </div>
         </div>
     );

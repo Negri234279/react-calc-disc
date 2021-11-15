@@ -1,9 +1,9 @@
 import { Fragment } from 'react';
 import { Link, Route } from 'react-router-dom';
 import { Switch } from 'react-router';
-import CalcDisc from './pages/CalcDisc';
-import Aprox from './pages/Aprox';
-import NoMatch from './components/NoMatch'
+import CalcDisc from './pages/CalcDisc.jsx';
+import Aprox from './pages/Aprox.jsx';
+import NoMatch from './components/NoMatch.jsx'
 import "./app.scss";
 
 const App = () => {
