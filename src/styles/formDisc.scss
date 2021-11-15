@@ -64,6 +64,26 @@
                 background: #BF1650;
             }
         }
+
+    }
+
+    .radius {
+        display: grid;
+        grid-template-columns: 50px 30px 75px 30px;
+        grid-template-rows: auto;
+        &-1, &-2, &-3, &-4 {
+            justify-self: stretch;
+            align-self: center;
+        }
+
+        input {
+            margin: 0;
+            padding: 0;
+        }
+
+        &[type="radio"] {
+            width: 10px;
+        }
     }
 
     .halfSelect {

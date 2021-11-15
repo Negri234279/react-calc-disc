@@ -232,19 +232,23 @@ const FormDisc = () => {
                     </div>
 
                     {/* Switch */}
-                    <div>
-                        <label> Simple </label>
-                        <input
-                            {...register("advanOpt", { required: true })}
-                            type="radio"
-                            onClick={() => setAdvanOpt(advanOpt = 0)}
-                        /> <br/>
-                        <label> Advanced </label>
-                        <input
-                            {...register("advanOpt", { required: true })}
-                            type="radio"
-                            onClick={() => setAdvanOpt(advanOpt = 1)}
-                        />
+                    <div className="radius">
+                        <div className="radius-1"> <label> Simple </label> </div>
+                        <div className="radius-2">
+                            <input
+                                {...register("advanOpt", { required: true })}
+                                type="radio"
+                                onClick={() => setAdvanOpt(advanOpt = 0)}
+                            />
+                        </div>
+                        <div className="radius-3"> <label> Advanced </label> </div>
+                        <div className="radius-4">
+                            <input
+                                {...register("advanOpt", { required: true })}
+                                type="radio"
+                                onClick={() => setAdvanOpt(advanOpt = 1)}
+                            />
+                        </div>
                     </div>
 
                     {advanOpt === 0 && <SimpleOpt /> }
