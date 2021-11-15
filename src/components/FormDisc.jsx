@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import '../styles/formDisc.scss';
 
@@ -11,7 +11,8 @@ const FormDisc = () => {
         formState: { errors }
     } = methods;
 
-    const advanOpt = 0;
+    
+    let [advanOpt, setAdvanOpt] = useState(0);
 
     const onSubmit = (data) => {        
         //console.clear();
@@ -98,11 +99,11 @@ const FormDisc = () => {
                     {/* Disc 25 */}
                     <div>
                         <select {...methods.register("disc25")}>
-                            <option value="2"> Disc's 25 - 2 </option>
+                            <option value="4"> Disc's 25 - 4 </option>
                             <option value="0"> Disc's 25 - 0 </option>
                             <option value="1"> Disc's 25 - 1 </option>
+                            <option value="2"> Disc's 25 - 2 </option>
                             <option value="3"> Disc's 25 - 3 </option>
-                            <option value="4"> Disc's 25 - 4 </option>
                             <option value="5"> Disc's 25 - 5 </option>
                             <option value="6"> Disc's 25 - 6 </option>
                             <option value="7"> Disc's 25 - 7 </option>
@@ -159,7 +160,7 @@ const FormDisc = () => {
         );
     };
 
-    
+    //console.log(advanOpt);
 
     return (
     
@@ -186,8 +187,18 @@ const FormDisc = () => {
 
                 {/* Switch */}
                 <div>
-                    <input {...register("advanOpt", { required: true })} type="radio" value="1" />
-                    <input {...register("advanOpt", { required: true })} type="radio" value="0" />
+                    <label> Simple </label>
+                    <input
+                        {...register("advanOpt", { required: true })}
+                        type="radio"
+                        onClick={() => setAdvanOpt(advanOpt = 0)}
+                    /> <br/>
+                    <label> Advanced </label>
+                    <input
+                        {...register("advanOpt", { required: true })}
+                        type="radio"
+                        onClick={() => setAdvanOpt(advanOpt = 1)}
+                    />
                 </div>
 
                 {advanOpt === 1 && <AdvanOpt /> }
