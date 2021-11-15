@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState  } from "react";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import Switch from "react-switch";
 import '../styles/formDisc.scss';
 
 const FormDisc = () => {
@@ -12,6 +13,11 @@ const FormDisc = () => {
     } = methods;
     
     let [advanOpt, setAdvanOpt] = useState(0);
+
+    const [checked, setChecked] = useState(0);
+    const handleChange = nextChecked => {
+        setChecked(nextChecked);
+    };
 
     const onSubmit = (data) => {
 
@@ -147,11 +153,11 @@ const FormDisc = () => {
                     {/* Disc 25 */}
                     <div>
                         <select {...methods.register("disc25")}>
-                            <option value="4"> Disc's 25 - 4 </option>
                             <option value="0"> Disc's 25 - 0 </option>
                             <option value="1"> Disc's 25 - 1 </option>
                             <option value="2"> Disc's 25 - 2 </option>
                             <option value="3"> Disc's 25 - 3 </option>
+                            <option value="4"> Disc's 25 - 4 </option>
                             <option value="5"> Disc's 25 - 5 </option>
                             <option value="6"> Disc's 25 - 6 </option>
                             <option value="7"> Disc's 25 - 7 </option>
@@ -208,6 +214,8 @@ const FormDisc = () => {
         );
     };
 
+    checked ? advanOpt = 1 : advanOpt = 0
+
     return (
     
         <div className="formDisc">
@@ -231,25 +239,11 @@ const FormDisc = () => {
                         {errors.weightTotal && <p> This field is required </p>}
                     </div>
 
-                    {/* Switch */}
-                    <div className="radius">
-                        <div className="radius-1"> <label> Simple </label> </div>
-                        <div className="radius-2">
-                            <input
-                                {...register("advanOpt", { required: true })}
-                                type="radio"
-                                onClick={() => setAdvanOpt(advanOpt = 0)}
-                            />
-                        </div>
-                        <div className="radius-3"> <label> Advanced </label> </div>
-                        <div className="radius-4">
-                            <input
-                                {...register("advanOpt", { required: true })}
-                                type="radio"
-                                onClick={() => setAdvanOpt(advanOpt = 1)}
-                            />
-                        </div>
-                    </div>
+                    <Switch
+                        onChange={handleChange}
+                        checked={checked}
+                        className="react-switch"
+                    />
 
                     {advanOpt === 0 && <SimpleOpt /> }
                     {advanOpt === 1 && <AdvanOpt /> }
