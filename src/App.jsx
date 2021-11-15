@@ -1,10 +1,10 @@
 import { Fragment } from 'react';
 import { Link, Route } from 'react-router-dom';
 import { Switch } from 'react-router';
-import CalcDisc from './pages/CalcDisc.jsx';
-import Aprox from './pages/Aprox.jsx';
+import CalcDisc from './pages/DiscCalc/CalcDisc.jsx';
+import Aprox from './pages/AproxCalc/Aprox.jsx';
 import NoMatch from './components/NoMatch.jsx'
-import "./app.scss";
+import "./styles/app.scss"
 
 const App = () => {
 
