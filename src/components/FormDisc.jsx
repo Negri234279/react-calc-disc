@@ -14,8 +14,7 @@ const FormDisc = () => {
     
     let [advanOpt, setAdvanOpt] = useState(0);
 
-    const onSubmit = (data) => {        
-        //console.clear();
+    const onSubmit = (data) => {
 
         let weightTotal = data.weightTotal - data.weightBar,
             generateDisc = document.querySelector("#container-disc"),
@@ -74,14 +73,64 @@ const FormDisc = () => {
                     generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-1"></div>');
                     break;
                 default:
-                    //console.log("Break");
                     weightTotal = -1;
                     break;
             }
         }
     };
 
-    const AdvanOpt = ()=> {
+    const SimpleOpt = () => {
+
+        const methods = useFormContext();
+
+        return (
+            <div className="ocult">
+                {/* Bumper */}
+                    <div>
+                        <select {...methods.register("bumper")}>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                
+                    {/* Disc 25 */}
+                    <div>
+                        <select {...methods.register("disc25")}>
+                            <option value="8"></option>
+                        </select>
+                    </div>
+
+                    {/* Disc 20 */}
+                    <div>
+                        <select {...methods.register("disc20")}>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+
+                    {/* Disc 15 */}
+                    <div>
+                        <select {...methods.register("disc15")}>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+
+                    {/* Disc 10 */}
+                    <div>
+                        <select {...methods.register("disc10")}>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+
+                    {/* Disc 5 */}
+                    <div>
+                        <select {...methods.register("disc5")}>
+                            <option value="1"> Disc's 5 - 1 </option>
+                        </select>
+                    </div>
+        </div>
+        );
+    }
+
+    const AdvanOpt = () => {
 
         const methods = useFormContext();
 
@@ -160,58 +209,57 @@ const FormDisc = () => {
         );
     };
 
-    //console.log(advanOpt);
-
     return (
     
         <div className="formDisc">
-        <FormProvider {...methods} >
-            <form onSubmit={handleSubmit(onSubmit)}>
-                {/* Bar weight */}
-                <div>            
-                    <label> Bar weight </label>
-                    <input
-                        type="number"
-                        defaultValue="20"
-                        {...register("weightBar", { required: true })}
-                    />
-                    {errors.weightBar && <p> This field is required </p>}
-                </div>
+            <FormProvider {...methods} >
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    {/* Bar weight */}
+                    <div>            
+                        <label> Bar weight </label>
+                        <input
+                            type="number"
+                            defaultValue="20"
+                            {...register("weightBar", { required: true })}
+                        />
+                        {errors.weightBar && <p> This field is required </p>}
+                    </div>
 
-                {/* Total weight */}
-                <div>
-                    <label> Total weight </label>
-                    <input type="number" {...register("weightTotal", { required: true })} />
-                    {errors.weightTotal && <p> This field is required </p>}
-                </div>
+                    {/* Total weight */}
+                    <div>
+                        <label> Total weight </label>
+                        <input type="number" {...register("weightTotal", { required: true })} />
+                        {errors.weightTotal && <p> This field is required </p>}
+                    </div>
 
-                {/* Switch */}
-                <div>
-                    <label> Simple </label>
-                    <input
-                        {...register("advanOpt", { required: true })}
-                        type="radio"
-                        onClick={() => setAdvanOpt(advanOpt = 0)}
-                    /> <br/>
-                    <label> Advanced </label>
-                    <input
-                        {...register("advanOpt", { required: true })}
-                        type="radio"
-                        onClick={() => setAdvanOpt(advanOpt = 1)}
-                    />
-                </div>
+                    {/* Switch */}
+                    <div>
+                        <label> Simple </label>
+                        <input
+                            {...register("advanOpt", { required: true })}
+                            type="radio"
+                            onClick={() => setAdvanOpt(advanOpt = 0)}
+                        /> <br/>
+                        <label> Advanced </label>
+                        <input
+                            {...register("advanOpt", { required: true })}
+                            type="radio"
+                            onClick={() => setAdvanOpt(advanOpt = 1)}
+                        />
+                    </div>
 
-                {advanOpt === 1 && <AdvanOpt /> }
+                    {advanOpt === 0 && <SimpleOpt /> }
+                    {advanOpt === 1 && <AdvanOpt /> }
 
-                {/* Submit */}
-                <div>
-                    <input
-                        type="submit"
-                        value="Calculate"
-                    />
-                </div>
-            </form>
-        </FormProvider>
+                    {/* Submit */}
+                    <div>
+                        <input
+                            type="submit"
+                            value="Calculate"
+                        />
+                    </div>
+                </form>
+            </FormProvider>
         </div>
 
     );
