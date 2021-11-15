@@ -12,7 +12,8 @@ const FormDisc = () => {
         formState: { errors }
     } = methods;
     
-    let [advanOpt, setAdvanOpt] = useState(0);
+    //let [advanOpt, setAdvanOpt] = useState(0);
+    let [advanOpt] = useState(0);
 
     const [checked, setChecked] = useState(0);
     const handleChange = nextChecked => {
