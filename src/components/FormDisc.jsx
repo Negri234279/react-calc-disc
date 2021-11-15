@@ -10,7 +10,6 @@ const FormDisc = () => {
         handleSubmit,
         formState: { errors }
     } = methods;
-
     
     let [advanOpt, setAdvanOpt] = useState(0);
 
@@ -126,7 +125,7 @@ const FormDisc = () => {
                             <option value="1"> Disc's 5 - 1 </option>
                         </select>
                     </div>
-        </div>
+            </div>
         );
     }
 
@@ -205,7 +204,7 @@ const FormDisc = () => {
                             <option value="4"> Disc's 5 - 4 </option>
                         </select>
                     </div>
-        </div>
+            </div>
         );
     };
 

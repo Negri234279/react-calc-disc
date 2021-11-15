@@ -13,7 +13,6 @@ const Aprox = () => {
             <DiscContainer />
         </Fragment>
 
-
     );
 };
 
