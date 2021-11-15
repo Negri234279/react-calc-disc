@@ -1,17 +1,19 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import '../styles/formDisc.scss';
 
 const FormDisc = () => {
 
+    const methods = useForm();
     const {
         register,
         handleSubmit,
         formState: { errors }
-    } = useForm();
+    } = methods;
+    
+    let [advanOpt, setAdvanOpt] = useState(0);
 
-    const onSubmit = (data) => {        
-        //console.clear();
+    const onSubmit = (data) => {
 
         let weightTotal = data.weightTotal - data.weightBar,
             generateDisc = document.querySelector("#container-disc"),
@@ -21,6 +23,8 @@ const FormDisc = () => {
             numDisc10 = data.disc10,
             numDisc5 = data.disc5,
             numBumper = parseInt(data.bumper);
+
+            console.log(data.advanOpt);
 
         generateDisc.textContent = "";
 
@@ -68,39 +72,72 @@ const FormDisc = () => {
                     generateDisc.insertAdjacentHTML("beforeend", '<div id="container-disc-1"></div>');
                     break;
                 default:
-                    //console.log("Break");
                     weightTotal = -1;
                     break;
             }
         }
     };
 
-    return (
-    
-        <div className="formDisc">
-            <form onSubmit={handleSubmit(onSubmit)}>
-                {/* Bar weight */}
-                <div>            
-                    <label> Bar weight </label>
-                    <input
-                        type="number"
-                        defaultValue="20"
-                        {...register("weightBar", { required: true })}
-                    />
-                    {errors.weightBar && <p> This field is required </p>}
-                </div>
+    const SimpleOpt = () => {
 
-                {/* Total weight */}
-                <div>
-                    <label> Total weight </label>
-                    <input type="number" {...register("weightTotal", { required: true })} />
-                    {errors.weightTotal && <p> This field is required </p>}
-                </div>
+        const methods = useFormContext();
 
-                <div className="halfSelect">
+        return (
+            <div className="ocult">
                 {/* Bumper */}
                     <div>
-                        <select {...register("bumper")}>
+                        <select {...methods.register("bumper")}>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                
+                    {/* Disc 25 */}
+                    <div>
+                        <select {...methods.register("disc25")}>
+                            <option value="8"></option>
+                        </select>
+                    </div>
+
+                    {/* Disc 20 */}
+                    <div>
+                        <select {...methods.register("disc20")}>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+
+                    {/* Disc 15 */}
+                    <div>
+                        <select {...methods.register("disc15")}>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+
+                    {/* Disc 10 */}
+                    <div>
+                        <select {...methods.register("disc10")}>
+                            <option value="1"></option>
+                        </select>
+                    </div>
+
+                    {/* Disc 5 */}
+                    <div>
+                        <select {...methods.register("disc5")}>
+                            <option value="1"> Disc's 5 - 1 </option>
+                        </select>
+                    </div>
+            </div>
+        );
+    }
+
+    const AdvanOpt = () => {
+
+        const methods = useFormContext();
+
+        return (
+            <div className="halfSelect">
+                {/* Bumper */}
+                    <div>
+                        <select {...methods.register("bumper")}>
                             <option value="">Bumper - 0</option>
                             <option value="20"> Disc 10kg </option>
                             <option value="30"> Disc 15kg </option>
@@ -109,12 +146,12 @@ const FormDisc = () => {
                 
                     {/* Disc 25 */}
                     <div>
-                        <select {...register("disc25")}>
-                            <option value="2"> Disc's 25 - 2 </option>
+                        <select {...methods.register("disc25")}>
+                            <option value="4"> Disc's 25 - 4 </option>
                             <option value="0"> Disc's 25 - 0 </option>
                             <option value="1"> Disc's 25 - 1 </option>
+                            <option value="2"> Disc's 25 - 2 </option>
                             <option value="3"> Disc's 25 - 3 </option>
-                            <option value="4"> Disc's 25 - 4 </option>
                             <option value="5"> Disc's 25 - 5 </option>
                             <option value="6"> Disc's 25 - 6 </option>
                             <option value="7"> Disc's 25 - 7 </option>
@@ -124,7 +161,7 @@ const FormDisc = () => {
 
                     {/* Disc 20 */}
                     <div>
-                        <select {...register("disc20")}>
+                        <select {...methods.register("disc20")}>
                             <option value="2"> Disc's 20 - 2 </option>
                             <option value="0"> Disc's 20 - 0 </option>
                             <option value="1"> Disc's 20 - 1 </option>
@@ -137,7 +174,7 @@ const FormDisc = () => {
 
                     {/* Disc 15 */}
                     <div>
-                        <select {...register("disc15")}>
+                        <select {...methods.register("disc15")}>
                             <option value="2"> Disc's 15 - 2 </option>
                             <option value="0"> Disc's 15 - 0 </option>
                             <option value="1"> Disc's 15 - 1 </option>
@@ -148,7 +185,7 @@ const FormDisc = () => {
 
                     {/* Disc 10 */}
                     <div>
-                        <select {...register("disc10")}>
+                        <select {...methods.register("disc10")}>
                             <option value="2"> Disc's 10 - 2 </option>
                             <option value="0"> Disc's 10 - 0 </option>
                             <option value="1"> Disc's 10 - 1 </option>
@@ -159,7 +196,7 @@ const FormDisc = () => {
 
                     {/* Disc 5 */}
                     <div>
-                        <select {...register("disc5")}>
+                        <select {...methods.register("disc5")}>
                             <option value="2"> Disc's 5 - 2 </option>
                             <option value="0"> Disc's 5 - 0 </option>
                             <option value="1"> Disc's 5 - 1 </option>
@@ -167,16 +204,61 @@ const FormDisc = () => {
                             <option value="4"> Disc's 5 - 4 </option>
                         </select>
                     </div>
-                </div>
+            </div>
+        );
+    };
 
-                {/* Submit */}
-                <div>
-                    <input
-                        type="submit"
-                        value="Calculate"
-                    />
-                </div>
-            </form>            
+    return (
+    
+        <div className="formDisc">
+            <FormProvider {...methods} >
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    {/* Bar weight */}
+                    <div>            
+                        <label> Bar weight </label>
+                        <input
+                            type="number"
+                            defaultValue="20"
+                            {...register("weightBar", { required: true })}
+                        />
+                        {errors.weightBar && <p> This field is required </p>}
+                    </div>
+
+                    {/* Total weight */}
+                    <div>
+                        <label> Total weight </label>
+                        <input type="number" {...register("weightTotal", { required: true })} />
+                        {errors.weightTotal && <p> This field is required </p>}
+                    </div>
+
+                    {/* Switch */}
+                    <div>
+                        <label> Simple </label>
+                        <input
+                            {...register("advanOpt", { required: true })}
+                            type="radio"
+                            onClick={() => setAdvanOpt(advanOpt = 0)}
+                        /> <br/>
+                        <label> Advanced </label>
+                        <input
+                            {...register("advanOpt", { required: true })}
+                            type="radio"
+                            onClick={() => setAdvanOpt(advanOpt = 1)}
+                        />
+                    </div>
+
+                    {advanOpt === 0 && <SimpleOpt /> }
+                    {advanOpt === 1 && <AdvanOpt /> }
+
+                    {/* Submit */}
+                    <div>
+                        <input
+                            type="submit"
+                            value="Calculate"
+                        />
+                    </div>
+                </form>
+            </FormProvider>
         </div>
 
     );

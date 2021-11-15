@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import Header from "../components/header";
-import FormDisc from '../components/FormDisc';
-import DiscContainer from '../components/DiscContainer';
+import Header from "../components/header.jsx";
+import FormDisc from '../components/FormDisc.jsx';
+import DiscContainer from '../components/DiscContainer.jsx';
 
 const Aprox = () => {
 
@@ -12,7 +12,6 @@ const Aprox = () => {
             <FormDisc />
             <DiscContainer />
         </Fragment>
-
 
     );
 };
