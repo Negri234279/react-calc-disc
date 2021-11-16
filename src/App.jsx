@@ -1,6 +1,6 @@
-import { Fragment } from 'react';
-import { Link, Route } from 'react-router-dom';
-import { Switch } from 'react-router';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar.jsx';
 import CalcDisc from './pages/DiscCalc/CalcDisc.jsx';
 import Aprox from './pages/AproxCalc/Aprox.jsx';
 import NoMatch from './components/NoMatch.jsx';
@@ -8,28 +8,16 @@ import './styles/app.scss';
 
 const App = () => {
 	return (
-		<Fragment>
-			<nav className='menu'>
-				<div>
-					<Link to='/'> Home </Link>
-				</div>
-				<div>
-					<Link to='/aprox'> Aprox </Link>
-				</div>
-			</nav>
-
-			<Switch>
-				<Route path='/' index exact>
-					<CalcDisc />
-				</Route>
-				<Route path='/aprox'>
-					<Aprox />
-				</Route>
-				<Route path='*'>
-					<NoMatch />
-				</Route>
-			</Switch>
-		</Fragment>
+		<div className='container'>
+			<Router>
+				<Navbar />
+				<Switch>
+					<Route path='/' exact component={CalcDisc} />
+					<Route path='/aprox' exact component={Aprox} />
+					<Route path='*' component={NoMatch} />
+				</Switch>
+			</Router>
+		</div>
 	);
 };
 

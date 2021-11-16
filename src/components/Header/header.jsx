@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import '../styles/header.scss';
+import './header.scss';
 
 /**
  * Asignar valor a un h1
