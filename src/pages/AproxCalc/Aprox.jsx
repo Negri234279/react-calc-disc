@@ -1,15 +1,18 @@
 import React, { Fragment } from "react";
 import Header from "../../components/Header/header.jsx";
-//import FormDisc from '../components/FormDisc.jsx';
-//import DiscContainer from '../components/DiscContainer.jsx';
+import GenDisc from './Components/GenDisc.jsx';
+import DiscContainer from './Components/DiscContainer.jsx';
 
+/**
+ * Calculadora de aproximaciones
+ */
 const Aprox = () => {
 
     return (
 		<Fragment>
 			<Header title='Aprox calculator' />
-			{/*<FormDisc />
-            <DiscContainer />*/}
+			<GenDisc />
+			<DiscContainer />
 		</Fragment>
 	);
 };
