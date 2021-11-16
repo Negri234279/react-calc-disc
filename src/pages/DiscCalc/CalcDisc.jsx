@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Header from '../../components/header.jsx';
+import Header from '../../components/Header/header.jsx';
 import FormDisc from './components/FormDisc.jsx';
 import DiscContainer from './components/DiscContainer.jsx';
 

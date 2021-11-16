@@ -7,8 +7,4 @@ export const MenuList = [
 		title: 'Aprox',
 		url: '/aprox',
 	},
-	{
-		title: 'No Match',
-		url: '*',
-	},
 ];

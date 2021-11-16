@@ -14,7 +14,7 @@ const App = () => {
 				<Switch>
 					<Route path='/' exact component={CalcDisc} />
 					<Route path='/aprox' exact component={Aprox} />
-					<Route path='*' exact component={NoMatch} />
+					<Route path='*' component={NoMatch} />
 				</Switch>
 			</Router>
 		</div>
