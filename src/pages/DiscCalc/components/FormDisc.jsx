@@ -20,12 +20,6 @@ const FormDisc = () => {
 		formState: { errors },
 	} = methods;
 
-	//let [advanOpt, setAdvanOpt] = useState(0);
-	/**
-	 * Formulario avanzado
-	 */
-	let [advanOpt] = useState(0);
-
 	/**
 	 * Componete switch
 	 */
@@ -130,11 +124,6 @@ const FormDisc = () => {
 		}
 	};
 
-	/**
-	 * Segun si el boton switch esta activo pasa varlores para generar formulario avanzado
-	 */
-	checked ? (advanOpt = 1) : (advanOpt = 0);
-
 	return (
 		<div className='formDisc'>
 			<FormProvider {...methods}>
@@ -160,6 +149,7 @@ const FormDisc = () => {
 						{errors.weightTotal && <p> This field is required </p>}
 					</div>
 
+					{/* Switch */}
 					<div className='switch'>
 						<div>
 							{' '}
@@ -174,8 +164,7 @@ const FormDisc = () => {
 						</div>
 					</div>
 
-					{advanOpt === 0 && <SimpleOpt />}
-					{advanOpt === 1 && <AdvanOpt />}
+					{checked ? <AdvanOpt /> : <SimpleOpt />}
 
 					{/* Submit */}
 					<div>
