@@ -17,16 +17,10 @@ const GenDisc = () => {
 		formState: { errors },
 	} = methods;
 
-	//let [advanOpt, setAdvanOpt] = useState(0);
-	/**
-	 * Formulario avanzado
-	 */
-	let [advanOpt] = useState(0);
-
 	/**
 	 * Componete switch
 	 */
-	const [checked, setChecked] = useState(0);
+	const [checked, setChecked] = useState(false);
 	const handleChange = nextChecked => {
 		setChecked(nextChecked);
 	};
@@ -47,12 +41,7 @@ const GenDisc = () => {
 		for (let i = 0; i < listAprox.length; i++) {
 			const numAprox = listAprox[i];
 			const weightAprox = ((weightTotalA * numAprox) / 100);
-			//console.log(weightAprox);
-			//console.log(typeof weightAprox);
 			function createDisc(weightAprox) {
-				//console.log('Test ' + props.weight);
-				let generateDiscDiv = document.querySelector('#container-discs');
-				generateDiscDiv.insertAdjacentHTML('beforeend', '<div id="container-disc-{i}"></div>');
 				
 				let weightTotal = weightAprox,
 					generateDisc = document.querySelector('#container-disc'),
@@ -61,10 +50,7 @@ const GenDisc = () => {
 					numDisc15 = data.disc15,
 					numDisc10 = data.disc10,
 					numDisc5 = data.disc5,
-					numBumper = parseInt(data.bumper);
-
-
-				
+					numBumper = parseInt(data.bumper);				
 
 				if (numBumper === 20) {
 					weightTotal -= 20;
@@ -149,11 +135,6 @@ const GenDisc = () => {
 
 	};
 
-	/**
-	 * Segun si el boton switch esta activo pasa varlores para generar formulario avanzado
-	 */
-	checked ? (advanOpt = 1) : (advanOpt = 0);
-
 	return (
 		<div className='formDisc'>
 			<FormProvider {...methods}>
@@ -192,8 +173,7 @@ const GenDisc = () => {
 						</div>
 					</div>
 
-					{advanOpt === 0 && <SimpleOpt />}
-					{advanOpt === 1 && <AdvanOpt />}
+					{checked ? <AdvanOpt /> : <SimpleOpt />}
 
 					{/* Submit */}
 					<div>
