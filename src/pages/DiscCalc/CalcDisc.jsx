@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Header from '../../components/Header/header.jsx';
 import FormDisc from './components/FormDisc.jsx';
-import DiscContainer from './components/DiscContainer.jsx';
+import DiscContainer from '../../components/DiscContainer.jsx';
 
 /**
  * Calculadora de discos

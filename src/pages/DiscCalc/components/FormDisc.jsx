@@ -23,7 +23,7 @@ const FormDisc = () => {
 	/**
 	 * Componete switch
 	 */
-	const [checked, setChecked] = useState(0);
+	const [checked, setChecked] = useState(false);
 	const handleChange = nextChecked => {
 		setChecked(nextChecked);
 	};
