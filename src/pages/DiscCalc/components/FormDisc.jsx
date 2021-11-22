@@ -152,7 +152,6 @@ const FormDisc = () => {
 					{/* Switch */}
 					<div className='switch'>
 						<div>
-							{' '}
 							<label> Advanced option: </label>{' '}
 						</div>
 						<div>
