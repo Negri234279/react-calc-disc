@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import Switch from 'react-switch';
-import '../styles/formDisc.scss';
-import AdvanOpt from './AdvanOpt';
-import SimpleOpt from './SimpleOpt';
+import '../../../styles/formDisc.scss';
+import AdvanOpt from '../../../components/AdvanOpt.jsx';
+import SimpleOpt from '../../../components/SimpleOpt.jsx';
 
 /**
  * Formulario de la calculadora de discos
