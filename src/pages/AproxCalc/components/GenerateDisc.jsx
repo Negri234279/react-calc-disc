@@ -6,7 +6,7 @@ import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
 import Button from '../../../components/Button/Button';
 
-const GenDisc = () => {
+const GenerateDisc = () => {
 	const methods = useForm();
 
 	/**
@@ -32,8 +32,7 @@ const GenDisc = () => {
 	 * @param {number} weightTotal Peso de los discos
 	 * @param generateDisc Variable para crear los discos
 	 */
-	const onSubmit = (data) => {
-		
+	const onSubmit = data => {
 		const weightTotalA = data.weightTotal - data.weightBar;
 		document.querySelector('#container-disc').textContent = '';
 
@@ -41,9 +40,8 @@ const GenDisc = () => {
 
 		for (let i = 0; i < listAprox.length; i++) {
 			const numAprox = listAprox[i];
-			const weightAprox = ((weightTotalA * numAprox) / 100);
+			const weightAprox = (weightTotalA * numAprox) / 100;
 			function createDisc(weightAprox) {
-				
 				let weightTotal = weightAprox,
 					generateDisc = document.querySelector('#container-disc'),
 					numDisc25 = data.disc25,
@@ -51,7 +49,7 @@ const GenDisc = () => {
 					numDisc15 = data.disc15,
 					numDisc10 = data.disc10,
 					numDisc5 = data.disc5,
-					numBumper = parseInt(data.bumper);				
+					numBumper = parseInt(data.bumper);
 
 				if (numBumper === 20) {
 					weightTotal -= 20;
@@ -133,7 +131,6 @@ const GenDisc = () => {
 
 			createDisc(weightAprox);
 		}
-
 	};
 
 	return (
@@ -177,11 +174,11 @@ const GenDisc = () => {
 					{checked ? <AdvanOpt /> : <SimpleOpt />}
 
 					{/* Submit */}
-					<Button type="submit" value="Calculate"/>
+					<Button type='submit' value='Calculate' />
 				</form>
 			</FormProvider>
 		</div>
 	);
 };
 
-export default GenDisc;
+export default GenerateDisc;

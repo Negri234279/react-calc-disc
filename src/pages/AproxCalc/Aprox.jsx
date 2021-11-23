@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Header from "../../components/Header/header";
-import GenDisc from './components/GenDisc';
+import GenerateDisc from './components/GenerateDisc';
 import DiscContainer from '../../components/DiscContainer';
 
 /**
@@ -11,7 +11,7 @@ const Aprox = () => {
     return (
 		<Fragment>
 			<Header title='Aprox calculator' />
-			<GenDisc />
+			<GenerateDisc />
 			<DiscContainer />
 		</Fragment>
 	);
