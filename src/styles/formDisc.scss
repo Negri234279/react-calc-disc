@@ -1,14 +1,9 @@
 //@import "./variables";
 
 .formDisc {
-    //border: red 1px solid;
     max-width: 300px;    
 	padding: 1rem 0rem;
     margin: 0 auto;
-    //display: flex;
-    //flex-flow: column nowrap;
-    //justify-content: center;
-    //align-items: center;
 
     p {
         color: #BF1650;
@@ -41,30 +36,6 @@
         &:disabled {
             opacity: 0.4;
         }
-
-        &[type="submit"] {
-            background: #EC5990;
-            color: white;
-            text-transform: uppercase;
-            border: none;
-            margin-top: 10px;
-            padding: 15px;
-            font-size: .9rem;
-            font-weight: 100;
-            letter-spacing: 5px;
-            cursor: pointer;
-            border-radius: .4rem;
-            -webkit-border-radius: .4rem;
-            -moz-border-radius: .4rem;
-            -ms-border-radius: .4rem;
-            -o-border-radius: .4rem;
-            -o-border-radius: .4rem;
-            -webkit-appearance: none;
-            &:hover {
-                background: #BF1650;
-            }
-        }
-
     }
 
     .halfSelect {

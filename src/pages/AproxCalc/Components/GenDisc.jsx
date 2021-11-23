@@ -4,6 +4,7 @@ import Switch from 'react-switch';
 import '../../../styles/formDisc.scss';
 import AdvanOpt from '../../../components/AdvanOpt.jsx';
 import SimpleOpt from '../../../components/SimpleOpt.jsx';
+import Button from '../../../components/Button/Button';
 
 const GenDisc = () => {
 	const methods = useForm();
@@ -176,9 +177,7 @@ const GenDisc = () => {
 					{checked ? <AdvanOpt /> : <SimpleOpt />}
 
 					{/* Submit */}
-					<div>
-						<input type='submit' value='Calculate' />
-					</div>
+					<Button type="submit" value="Calculate"/>
 				</form>
 			</FormProvider>
 		</div>
