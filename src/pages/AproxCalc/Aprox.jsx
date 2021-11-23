@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import Header from "../../components/Header/header.jsx";
-import GenDisc from './components/GenDisc.jsx';
-import DiscContainer from '../../components/DiscContainer.jsx';
+import { Fragment } from "react";
+import Header from "../../components/Header/header";
+import GenDisc from './components/GenDisc';
+import DiscContainer from '../../components/DiscContainer';
 
 /**
  * Calculadora de aproximaciones

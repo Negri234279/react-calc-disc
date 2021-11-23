@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import Switch from 'react-switch';
 import '../../../styles/formDisc.scss';
-import AdvanOpt from '../../../components/AdvanOpt.jsx';
-import SimpleOpt from '../../../components/SimpleOpt.jsx';
+import AdvanOpt from '../../../components/AdvanOpt';
+import SimpleOpt from '../../../components/SimpleOpt';
 import Button from '../../../components/Button/Button';
 
 /**

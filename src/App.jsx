@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar.jsx';
-import CalcDisc from './pages/DiscCalc/CalcDisc.jsx';
-import Aprox from './pages/AproxCalc/Aprox.jsx';
-import NoMatch from './components/NoMatch.jsx';
+import Navbar from './components/Navbar/Navbar';
+import CalcDisc from './pages/DiscCalc/CalcDisc';
+import Aprox from './pages/AproxCalc/Aprox';
+import NoMatch from './components/NoMatch';
 import './styles/app.scss';
 
 const App = () => {
