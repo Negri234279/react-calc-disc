@@ -5,6 +5,7 @@ import '../../../styles/formDisc.scss';
 import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
 import Button from '../../../components/Button/Button';
+import '../../../styles/discContainer.scss';
 
 /**
  * Formulario de la calculadora de discos

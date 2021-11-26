@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Header from "../../components/Header/header";
 import GenerateDisc from './components/GenerateDisc';
-import DiscContainer from '../../components/DiscContainer';
+//import DiscContainer from '../../components/DiscContainer';
 
 /**
  * Calculadora de aproximaciones
@@ -12,7 +12,7 @@ const Aprox = () => {
 		<Fragment>
 			<Header title='Aprox calculator' />
 			<GenerateDisc />
-			<DiscContainer />
+			{/* <DiscContainer /> */}
 		</Fragment>
 	);
 };
