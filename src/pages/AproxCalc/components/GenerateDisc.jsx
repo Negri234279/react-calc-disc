@@ -35,16 +35,18 @@ const GenerateDisc = () => {
 	 */
 	const onSubmit = (data) => {
 
-		document.querySelector('#container').textContent = '';
-
 		const weightTotalA = data.weightTotal - data.weightBar;
 		const listAprox = [25, 42, 60, 71, 82, 89, 94, 100];
+
+		for (let j = 0; j < listAprox.length; j++) {
+			document.querySelector(`#container-${j}`).textContent = '';
+		}
 
 		for (let i = 0; i < listAprox.length; i++) {
 			const numAprox = listAprox[i];
 			const weightAprox = (weightTotalA * numAprox) / 100;
-			//let idContainer = `#container-${i}`;
-			let idContainer = '#container';		
+			let idContainer = `#container-${i}`;
+			//let idContainer = '#container';		
 
 			createDisc(data, weightAprox, idContainer);
 		}
@@ -159,15 +161,14 @@ const GenerateDisc = () => {
 				</form>
 			</FormProvider>
 			<div id='container'>
-				<div id='container-0'> 0 </div>
-				<div id='container-1'> 0 </div>
-				<div id='container-2'> 0 </div>
-				<div id='container-3'> 0 </div>
-				<div id='container-4'> 0 </div>
-				<div id='container-5'> 0 </div>
-				<div id='container-6'> 0 </div>
-				<div id='container-7'> 0 </div>
-				<div id='container-8'> 0 </div>
+				<div id='container-0'></div>
+				<div id='container-1'></div>
+				<div id='container-2'></div>
+				<div id='container-3'></div>
+				<div id='container-4'></div>
+				<div id='container-5'></div>
+				<div id='container-6'></div>
+				<div id='container-7'></div>
 			</div>
 		</div>
 	);
