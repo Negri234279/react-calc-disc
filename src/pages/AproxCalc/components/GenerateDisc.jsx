@@ -6,6 +6,7 @@ import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
 import Button from '../../../components/Button/Button';
 import '../discContainer.scss';
+import MovOpt from './MovOpt';
 
 const GenerateDisc = () => {
 	const methods = useForm();
@@ -36,17 +37,31 @@ const GenerateDisc = () => {
 	const onSubmit = (data) => {
 
 		const weightTotalA = data.weightTotal - data.weightBar;
-		const listAprox = [25, 42, 60, 71, 82, 89, 94, 100];
 
-		for (let j = 0; j < listAprox.length; j++) {
+		const movement = data.mov + data.block;
+
+		const listAprox = {
+			sqvolumen: [25, 42, 60, 71, 82, 89, 94, 100],
+			sqpeaking: [25, 42, 60, 71, 82, 89, 94, 100],
+			bpvolumen: [25, 42, 60, 71, 82, 89, 90, 100],
+			bppeaking: [25, 42, 60, 71, 82, 89, 95, 100],
+			dlvolumen: [25, 42, 60, 71, 82, 89, 94, 100],
+			dlpeaking: [25, 42, 60, 71, 82, 89, 93, 100],
+		};
+
+		console.log(listAprox[movement]);
+
+		//const listAprox = [25, 42, 60, 71, 82, 89, 94, 100];
+
+		for (let j = 0; j < listAprox[movement].length; j++) {
 			document.querySelector(`#container-${j}`).textContent = '';
 		}
 
-		for (let i = 0; i < listAprox.length; i++) {
+		for (let i = 0; i < listAprox[movement].length; i++) {
 			const numAprox = listAprox[i];
 			const weightAprox = (weightTotalA * numAprox) / 100;
 			let idContainer = `#container-${i}`;
-			//let idContainer = '#container';		
+			//let idContainer = '#container';
 
 			createDisc(data, weightAprox, idContainer);
 		}
@@ -141,6 +156,8 @@ const GenerateDisc = () => {
 						{errors.weightTotal && <p> This field is required </p>}
 					</div>
 
+					<MovOpt />
+
 					<div className='switch'>
 						<div>
 							<label> Advanced option: </label>
@@ -160,6 +177,7 @@ const GenerateDisc = () => {
 					<Button type='submit' value='Calculate' />
 				</form>
 			</FormProvider>
+
 			<div id='container'>
 				<div id='container-0'></div>
 				<div id='container-1'></div>
