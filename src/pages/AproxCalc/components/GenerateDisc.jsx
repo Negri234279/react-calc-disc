@@ -37,31 +37,25 @@ const GenerateDisc = () => {
 	const onSubmit = (data) => {
 
 		const weightTotalA = data.weightTotal - data.weightBar;
-
 		const movement = data.mov + data.block;
-
 		const listAprox = {
-			sqvolumen: [25, 42, 60, 71, 82, 89, 94, 100],
+			sqvolumen: [30, 54, 80, 90, 100],
 			sqpeaking: [25, 42, 60, 71, 82, 89, 94, 100],
-			bpvolumen: [25, 42, 60, 71, 82, 89, 90, 100],
-			bppeaking: [25, 42, 60, 71, 82, 89, 95, 100],
-			dlvolumen: [25, 42, 60, 71, 82, 89, 94, 100],
-			dlpeaking: [25, 42, 60, 71, 82, 89, 93, 100],
+			bpvolumen: [47, 67, 80, 86, 93, 100],
+			bppeaking: [25, 45, 58, 70, 82, 89, 95, 100],
+			dlvolumen: [25, 44, 62, 78, 90, 100],
+			dlpeaking: [22, 38, 54, 71, 85, 93, 100],
 		};
+		const aprox = listAprox[movement].reverse();
 
-		console.log(listAprox[movement]);
-
-		//const listAprox = [25, 42, 60, 71, 82, 89, 94, 100];
-
-		for (let j = 0; j < listAprox[movement].length; j++) {
-			document.querySelector(`#container-${j}`).textContent = '';
+		for (let i = 0; i < 8; i++) {
+			document.querySelector(`#container-${i}`).textContent = '';
 		}
 
-		for (let i = 0; i < listAprox[movement].length; i++) {
-			const numAprox = listAprox[i];
+		for (let i = 0; i < aprox.length; i++) {
+			const numAprox = aprox[i];
 			const weightAprox = (weightTotalA * numAprox) / 100;
 			let idContainer = `#container-${i}`;
-			//let idContainer = '#container';
 
 			createDisc(data, weightAprox, idContainer);
 		}
@@ -77,7 +71,6 @@ const GenerateDisc = () => {
 			numDisc10 = data.disc10,
 			numDisc5 = data.disc5,
 			numBumper = data.bumper;
-		//console.log(idContainer);
 
 		if (numBumper === 20) {
 			weightTotal -= 20;
