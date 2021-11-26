@@ -5,12 +5,10 @@ import '../../../styles/formDisc.scss';
 import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
 import Button from '../../../components/Button/Button';
-import '../../../styles/discContainer.scss';
+import '../discContainer.scss';
+import MovOpt from './MovOpt';
 
-/**
- * Formulario de la calculadora de discos
- */
-const FormDisc = () => {
+const GenerateDisc = () => {
 	const methods = useForm();
 
 	/**
@@ -36,95 +34,95 @@ const FormDisc = () => {
 	 * @param {number} weightTotal Peso de los discos
 	 * @param generateDisc Variable para crear los discos
 	 */
-	const onSubmit = data => {
-		let weightTotal = data.weightTotal - data.weightBar,
-			generateDisc = document.querySelector('#container-disc'),
+	const onSubmit = (data) => {
+
+		const weightTotalA = data.weightTotal - data.weightBar;
+		const movement = data.mov + data.block;
+		const listAprox = {
+			sqvolumen: [30, 54, 80, 90, 100],
+			sqpeaking: [25, 42, 60, 71, 82, 89, 94, 100],
+			bpvolumen: [47, 67, 80, 86, 93, 100],
+			bppeaking: [25, 45, 58, 70, 82, 89, 95, 100],
+			dlvolumen: [25, 44, 62, 78, 90, 100],
+			dlpeaking: [22, 38, 54, 71, 85, 93, 100],
+		};
+		const aprox = listAprox[movement].reverse();
+
+		for (let i = 0; i < 8; i++) {
+			document.querySelector(`#container-${i}`).textContent = '';
+		}
+
+		for (let i = 0; i < aprox.length; i++) {
+			const numAprox = aprox[i];
+			const weightAprox = (weightTotalA * numAprox) / 100;
+			let idContainer = `#container-${i}`;
+
+			createDisc(data, weightAprox, idContainer);
+		}
+	};
+
+	function createDisc(data, weightAprox, idContainer) {
+
+		let weightTotal = weightAprox,
+			generateDisc = document.querySelector(idContainer),
 			numDisc25 = data.disc25,
 			numDisc20 = data.disc20,
 			numDisc15 = data.disc15,
 			numDisc10 = data.disc10,
 			numDisc5 = data.disc5,
-			numBumper = parseInt(data.bumper);
-
-		generateDisc.textContent = '';
+			numBumper = data.bumper;
 
 		if (numBumper === 20) {
 			weightTotal -= 20;
-			generateDisc.insertAdjacentHTML(
-				'beforeend',
-				'<div id="container-disc-b10"></div>'
-			);
+			generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-b10"></div>');
 		}
 		if (numBumper === 30) {
 			weightTotal -= 30;
-			generateDisc.insertAdjacentHTML(
-				'beforeend',
-				'<div id="container-disc-b15"></div>'
-			);
+			generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-b15"></div>');
 		}
 
-		while (weightTotal > -1) {
+		while (weightTotal > 0) {
 			switch (true) {
 				case weightTotal >= 50 && numDisc25 > 0:
 					weightTotal -= 50;
 					numDisc25 -= 1;
-					generateDisc.insertAdjacentHTML(
-						'beforeend',
-						'<div id="container-disc-25"></div>'
-					);
+					generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-25"></div>');
 					break;
 				case weightTotal >= 40 && numDisc20 > 0:
 					weightTotal -= 40;
 					numDisc20 -= 1;
-					generateDisc.insertAdjacentHTML(
-						'beforeend',
-						'<div id="container-disc-20"></div>'
-					);
+					generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-20"></div>');
 					break;
 				case weightTotal >= 30 && numDisc15 > 0:
 					weightTotal -= 30;
 					numDisc15 -= 1;
-					generateDisc.insertAdjacentHTML(
-						'beforeend',
-						'<div id="container-disc-15"></div>'
-					);
+					generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-15"></div>');
 					break;
 				case weightTotal >= 20 && numDisc10 > 0:
 					weightTotal -= 20;
 					numDisc10 -= 1;
-					generateDisc.insertAdjacentHTML(
-						'beforeend',
-						'<div id="container-disc-10"></div>'
-					);
+					generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-10"></div>');
 					break;
 				case weightTotal >= 10 && numDisc5 > 0:
 					weightTotal -= 10;
 					numDisc5 -= 1;
-					generateDisc.insertAdjacentHTML(
-						'beforeend',
-						'<div id="container-disc-5"></div>'
-					);
+					generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-5"></div>');
 					break;
 				case weightTotal >= 5:
 					weightTotal -= 5;
-					generateDisc.insertAdjacentHTML(
-						'beforeend',
-						'<div id="container-disc-2"></div>'
-					);
+					generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-2"></div>');
 					break;
 				case weightTotal >= 2.5 || weightTotal >= 2:
 					weightTotal -= 2.5;
-					generateDisc.insertAdjacentHTML(
-						'beforeend',
-						'<div id="container-disc-1"></div>'
-					);
+					generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-1"></div>');
 					break;
 				default:
-					weightTotal = -1;
+					weightTotal = 0;
 					break;
 			}
 		}
-	};
+
+	}
 
 	return (
 		<div className='formDisc'>
@@ -151,10 +149,11 @@ const FormDisc = () => {
 						{errors.weightTotal && <p> This field is required </p>}
 					</div>
 
-					{/* Switch */}
+					<MovOpt />
+
 					<div className='switch'>
 						<div>
-							<label> Advanced option: </label>{' '}
+							<label> Advanced option: </label>
 						</div>
 						<div>
 							<Switch
@@ -171,8 +170,19 @@ const FormDisc = () => {
 					<Button type='submit' value='Calculate' />
 				</form>
 			</FormProvider>
+
+			<div id='container'>
+				<div id='container-0'></div>
+				<div id='container-1'></div>
+				<div id='container-2'></div>
+				<div id='container-3'></div>
+				<div id='container-4'></div>
+				<div id='container-5'></div>
+				<div id='container-6'></div>
+				<div id='container-7'></div>
+			</div>
 		</div>
 	);
 };
 
-export default FormDisc;
+export default GenerateDisc;
