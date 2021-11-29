@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Header from "../../components/Header/header";
+import Header from '../../components/Header/header';
 import GenerateDisc from './components/GenerateDisc';
 //import DiscContainer from '../../components/DiscContainer';
 
