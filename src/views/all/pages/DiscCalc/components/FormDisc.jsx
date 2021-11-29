@@ -3,10 +3,10 @@ import { useForm, FormProvider } from 'react-hook-form';
 import Switch from 'react-switch';
 import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
-import Button from '../../../components/Button/Button';
 import { createDisc } from '../../../hooks/genDiscdAprox';
-import '../../../scss/formDisc.scss';
 import '../scss/discContainer.scss';
+import '../../../scss/formDisc.scss';
+import Button from '../../../components/Button/Button';
 
 /**
  * Formulario de la calculadora de discos
@@ -42,7 +42,7 @@ const FormDisc = () => {
 		const idContainer = '#container-0';
 		document.querySelector(idContainer).textContent = '';
 
-		createDisc(data, weightTotal, idContainer);
+		createDisc(data, weightTotal, idContainer, checked);
 
 	};
 
@@ -95,7 +95,6 @@ const FormDisc = () => {
 			<div id='container'>
 				<div id='container-0'></div>
 			</div>
-
 		</div>
 	);
 };
