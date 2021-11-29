@@ -1,4 +1,10 @@
-function createDisc(data, weightAprox, idContainer) {
+/**
+ * 
+ * @param {int} data props datos formulario
+ * @param {int} weightAprox peso formulario
+ * @param {string} idContainer #ID box padre grupo discos
+ */
+export function createDisc(data, weightAprox, idContainer) {
 
     let weightTotal = weightAprox,
         generateDisc = document.querySelector(idContainer),
