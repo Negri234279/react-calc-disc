@@ -10,6 +10,7 @@ import MovOpt from './MovOpt';
 import { createDisc } from '../../../hooks/genDiscdAprox';
 
 const GenerateDisc = () => {
+
 	const methods = useForm();
 
 	/**
@@ -36,6 +37,7 @@ const GenerateDisc = () => {
 	const onSubmit = (data) => {
 
 		const weightTotalA = data.weightTotal - data.weightBar;
+		
 		const movement = data.mov + data.block;
 		const listAprox = {
 			sqvolumen: [30, 54, 80, 90, 100],

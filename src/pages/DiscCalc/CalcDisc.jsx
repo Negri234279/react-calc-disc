@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Header from '../../components/Header/header';
 import FormDisc from './components/FormDisc';
-import DiscContainer from '../../components/DiscContainer';
+//import DiscContainer from '../../components/DiscContainer';
 
 /**
  * Calculadora de discos
@@ -11,7 +11,7 @@ const CalcDisc = () => {
 		<Fragment>
 			<Header title='Disc calculator' />
 			<FormDisc />
-			<DiscContainer />
+			{/* <DiscContainer /> */}
 		</Fragment>
 	);
 };

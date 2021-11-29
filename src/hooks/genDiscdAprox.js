@@ -1,7 +1,7 @@
 /**
  * 
- * @param {int} data props datos formulario
- * @param {int} weightAprox peso formulario
+ * @param {number} data props datos formulario
+ * @param {number} weightAprox peso formulario
  * @param {string} idContainer #ID box padre grupo discos
  */
 export function createDisc(data, weightAprox, idContainer) {
@@ -14,7 +14,6 @@ export function createDisc(data, weightAprox, idContainer) {
         numDisc10 = data.disc10,
         numDisc5 = data.disc5,
         numBumper = data.bumper;
-    //console.log(idContainer);
 
     if (numBumper === 20) {
         weightTotal -= 20;
