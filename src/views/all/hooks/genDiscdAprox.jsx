@@ -14,15 +14,15 @@ export const createDisc = (data, weightAprox, idContainer) => {
         numDisc15 = data.disc15,
         numDisc10 = data.disc10,
         numDisc5 = data.disc5,
-        numBumper = data.bumper;
+        numBumper = parseInt(data.bumper);
 
     if (numBumper === 20) {
-        weightTotal -= 20;
+        weightTotal -= 10;
         generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-b10"></div>');
     }
 
     if (numBumper === 30) {
-        weightTotal -= 30;
+        weightTotal -= 15;
         generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-b15"></div>');
     }
 
@@ -31,56 +31,35 @@ export const createDisc = (data, weightAprox, idContainer) => {
 			case weightTotal >= 25 && numDisc25 > 0:
 				weightTotal -= 25;
 				numDisc25 -= 1;
-				generateDisc.insertAdjacentHTML(
-					'beforeend',
-					'<div id="container-disc-25"></div>'
-				);
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-25"></div>');
 				break;
 			case weightTotal >= 20 && numDisc20 > 0:
 				weightTotal -= 20;
 				numDisc20 -= 1;
-				generateDisc.insertAdjacentHTML(
-					'beforeend',
-					'<div id="container-disc-20"></div>'
-				);
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-20"></div>');
 				break;
 			case weightTotal >= 15 && numDisc15 > 0:
 				weightTotal -= 15;
 				numDisc15 -= 1;
-				generateDisc.insertAdjacentHTML(
-					'beforeend',
-					'<div id="container-disc-15"></div>'
-				);
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-15"></div>');
 				break;
 			case weightTotal >= 10 && numDisc10 > 0:
 				weightTotal -= 10;
 				numDisc10 -= 1;
-				generateDisc.insertAdjacentHTML(
-					'beforeend',
-					'<div id="container-disc-10"></div>'
-				);
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-10"></div>');
 				break;
 			case weightTotal >= 5 && numDisc5 > 0:
 				weightTotal -= 5;
 				numDisc5 -= 1;
-				generateDisc.insertAdjacentHTML(
-					'beforeend',
-					'<div id="container-disc-5"></div>'
-				);
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-5"></div>'	);
 				break;
 			case weightTotal >= 2.5:
 				weightTotal -= 2.5;
-				generateDisc.insertAdjacentHTML(
-					'beforeend',
-					'<div id="container-disc-2"></div>'
-				);
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-2"></div>');
 				break;
 			case weightTotal >= 1.25:
 				weightTotal -= 1.25;
-				generateDisc.insertAdjacentHTML(
-					'beforeend',
-					'<div id="container-disc-1"></div>'
-				);
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-1"></div>');
 				break;
 			default:
 				weightTotal = 0;
