@@ -39,10 +39,9 @@ const FormDisc = () => {
 		
 		const weightTotal = data.weightTotal - data.weightBar;
 
-		const idContainer = '#container-0';
-		document.querySelector(idContainer).textContent = '';
+		document.querySelector('#container-0').textContent = '';
 
-		createDisc(data, weightTotal, idContainer, checked);
+		createDisc(data, weightTotal, 0);
 
 	};
 
@@ -74,7 +73,7 @@ const FormDisc = () => {
 					{/* Switch */}
 					<div className='switch'>
 						<div>
-							<label> Advanced option: </label>{' '}
+							<label> Advanced option: </label>
 						</div>
 						<div>
 							<Switch

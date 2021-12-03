@@ -2,19 +2,19 @@
  * 
  * @param {number} data props datos formulario
  * @param {number} weightAprox peso formulario
- * @param {string} idContainer #ID box padre grupo discos
- * @param {boolean} checked Estado switch adv opt
+ * @param {string} index #Indice repeticion funcion
  */
-export const createDisc = (data, weightAprox, idContainer) => {
+export const createDisc = (data, weightAprox, index) => {
 
-    let weightTotal = (weightAprox / 2),
-        generateDisc = document.querySelector(idContainer),
-        numDisc25 = data.disc25,
-        numDisc20 = data.disc20,
-        numDisc15 = data.disc15,
-        numDisc10 = data.disc10,
-        numDisc5 = data.disc5,
-        numBumper = parseInt(data.bumper);
+    let weightTotal = weightAprox / 2,
+		//generateDisc = document.querySelector(`#container-${index}`),
+		generateDisc = document.querySelector(`#container-${index}`),
+		numDisc25 = data.disc25,
+		numDisc20 = data.disc20,
+		numDisc15 = data.disc15,
+		numDisc10 = data.disc10,
+		numDisc5 = data.disc5,
+		numBumper = parseInt(data.bumper);
 
     if (numBumper === 20) {
         weightTotal -= 10;
@@ -66,5 +66,9 @@ export const createDisc = (data, weightAprox, idContainer) => {
 				break;
 		}
     }
+
+	/*for (let i = 0; i < index; i++) {
+		document.querySelector('#container').insertAdjacentHTML('beforeend', `<div id="container-${index}></div>`);
+	}*/
 
 }

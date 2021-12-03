@@ -56,9 +56,8 @@ const GenerateDisc = () => {
 		for (let i = 0; i < aprox.length; i++) {
 			const numAprox = aprox[i];
 			const weightAprox = (weightTotalA * numAprox) / 100;
-			let idContainer = `#container-${i}`;
 
-			createDisc(data, weightAprox, idContainer);
+			createDisc(data, weightAprox, i);
 		}
 	};
 
