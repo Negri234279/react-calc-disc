@@ -2,6 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##  Disc calculator 
+##  PowerLog
 
-![Captura](https://user-images.githubusercontent.com/29003528/139752065-a4c23d4f-e8e7-40f1-aa45-b5c80b110ec1.JPG)
+![image](https://user-images.githubusercontent.com/29003528/145422827-c6cca31b-ade1-431a-8b00-fb14685b0853.png)
