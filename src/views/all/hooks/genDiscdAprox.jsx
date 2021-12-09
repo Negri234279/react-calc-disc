@@ -7,7 +7,7 @@
  */
 export const createDisc = (data, weightAprox, idContainer) => {
 
-    let weightTotal = (weightAprox / 2),
+    let weightTotal = parseInt(weightAprox / 2),
         generateDisc = document.querySelector(idContainer),
         numDisc25 = data.disc25,
         numDisc20 = data.disc20,
@@ -25,8 +25,9 @@ export const createDisc = (data, weightAprox, idContainer) => {
         weightTotal -= 15;
         generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-b15"></div>');
     }
-
+	console.log(idContainer);
     while (weightTotal > 0) {
+		console.log(weightTotal);
         switch (true) {
 			case weightTotal >= 25 && numDisc25 > 0:
 				weightTotal -= 25;
@@ -53,12 +54,12 @@ export const createDisc = (data, weightAprox, idContainer) => {
 				numDisc5 -= 1;
 				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-5"></div>'	);
 				break;
-			case weightTotal >= 2.5:
-				weightTotal -= 2.5;
+			case weightTotal >= 2:
+				weightTotal -= 2;
 				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-2"></div>');
 				break;
-			case weightTotal >= 1.25:
-				weightTotal -= 1.25;
+			case weightTotal >= 1:
+				weightTotal -= 1;
 				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-1"></div>');
 				break;
 			default:
