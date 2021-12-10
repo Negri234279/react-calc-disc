@@ -3,7 +3,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import Switch from 'react-switch';
 import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
-import { createDisc } from '../../../hooks/genDiscdAprox';
+import { generatePlates } from '../../../hooks/generatePlates';
 import '../scss/discContainer.scss';
 import '../../../scss/formDisc.scss';
 import Button from '../../../components/Button/Button';
@@ -30,19 +30,16 @@ const FormDisc = () => {
 	const handleChange = nextChecked => setChecked(nextChecked);
 
 	/**
-	 * Funcion que genera los discos
-	 * @param {number} data Valores de los discos
-	 * @param {number} weightTotal Peso de los discos
-	 * @param generateDisc Variable para crear los discos
+	 * Formulario de los discos
+	 * @param {string} data Valores del formulario
 	 */
 	const onSubmit = (data) => {
 		
-		const weightTotal = data.weightTotal - data.weightBar;
+		const weightTotal = data.weightTotal;
 
-		const idContainer = '#container-0';
-		document.querySelector(idContainer).textContent = '';
+		document.querySelector('#container-0').textContent = '';
 
-		createDisc(data, weightTotal, idContainer, checked);
+		generatePlates(data, weightTotal, 0);
 
 	};
 
@@ -74,7 +71,7 @@ const FormDisc = () => {
 					{/* Switch */}
 					<div className='switch'>
 						<div>
-							<label> Advanced option: </label>{' '}
+							<label> Advanced option: </label>
 						</div>
 						<div>
 							<Switch

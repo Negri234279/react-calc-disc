@@ -5,12 +5,11 @@ import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
 import Button from '../../../components/Button/Button';
 import MovOpt from './MovOpt';
-import { createDisc } from '../../../hooks/genDiscdAprox';
+import { generatePlates } from '../../../hooks/generatePlates';
 import '../discContainer.scss';
 import '../../../scss/formDisc.scss';
 
 const GenerateDisc = () => {
-
 	const methods = useForm();
 
 	/**
@@ -29,25 +28,20 @@ const GenerateDisc = () => {
 	const handleChange = nextChecked => setChecked(nextChecked);
 
 	/**
-	 * Funcion que genera los discos
-	 * @param {*} data Valores de los discos
-	 * @param {number} weightTotal Peso de los discos
-	 * @param generateDisc Variable para crear los discos
+	 * Formulario de los discos
+	 * @param {string} data Valores del formulario
 	 */
 	const onSubmit = (data) => {
-
-		const weightTotalA = data.weightTotal - data.weightBar;
-		
-		const movement = data.mov + data.block;
-		const listAprox = {
-			sqvolumen: [30, 54, 80, 90, 100],
-			sqpeaking: [25, 42, 60, 71, 82, 89, 94, 100],
-			bpvolumen: [47, 67, 80, 86, 93, 100],
-			bppeaking: [25, 45, 58, 70, 82, 89, 95, 100],
-			dlvolumen: [25, 44, 62, 78, 90, 100],
-			dlpeaking: [22, 38, 54, 71, 85, 93, 100],
-		};
-		const aprox = listAprox[movement].reverse();
+		const movement = data.mov + data.block,
+			listAprox = {
+				sqvolumen: [30, 54, 80, 90, 100],
+				sqpeaking: [25, 42, 60, 71, 82, 89, 94, 100],
+				bpvolumen: [47, 67, 80, 86, 93, 100],
+				bppeaking: [25, 45, 58, 70, 82, 89, 95, 100],
+				dlvolumen: [25, 44, 62, 78, 90, 100],
+				dlpeaking: [22, 38, 54, 71, 85, 93, 100],
+			},
+			aprox = listAprox[movement].reverse();
 
 		for (let i = 0; i < 8; i++) {
 			document.querySelector(`#container-${i}`).textContent = '';
@@ -55,11 +49,10 @@ const GenerateDisc = () => {
 
 		for (let i = 0; i < aprox.length; i++) {
 			const numAprox = aprox[i];
-			const weightAprox = (weightTotalA * numAprox) / 100;
-			let idContainer = `#container-${i}`;
+			const weightTotal = parseFloat((data.weightTotal * numAprox) / 100);
 
-			createDisc(data, weightAprox, idContainer);
-		}
+			generatePlates(data, weightTotal, i);
+ 		}
 	};
 
 	return (
