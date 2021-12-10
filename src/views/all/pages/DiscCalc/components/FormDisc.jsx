@@ -35,12 +35,11 @@ const FormDisc = () => {
 	 */
 	const onSubmit = (data) => {
 		
-		const weightTotal = data.weightTotal,
-			weightBar = data.weightBar;
+		const weightTotal = data.weightTotal;
 
 		document.querySelector('#container-0').textContent = '';
 
-		createDisc(data, weightTotal, weightBar, 0);
+		createDisc(data, weightTotal, 0);
 
 	};
 

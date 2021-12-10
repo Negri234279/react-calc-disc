@@ -2,13 +2,12 @@
  * 
  * @param {string} data Datos del formulario
  * @param {number} weightTotal Peso discos total
- * @param {number} weightBar Peso de barra
  * @param {string} index Indice repeticion funcion
  */
-export const createDisc = (data, weightTotal, weightBar, index) => {
+export const createDisc = (data, weightTotal, index) => {
 
 	const generateDisc = document.querySelector(`#container-${index}`);
-	let weightPlates = (weightTotal - weightBar) / 2,
+	let weightPlates = (weightTotal - data.weightBar) / 2,
 		numDisc25 = data.disc25,
 		numDisc20 = data.disc20,
 		numDisc15 = data.disc15,

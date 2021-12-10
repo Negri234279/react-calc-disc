@@ -32,8 +32,7 @@ const GenerateDisc = () => {
 	 * @param {string} data Valores del formulario
 	 */
 	const onSubmit = (data) => {
-		const weightBar = data.weightBar,
-			movement = data.mov + data.block,
+		const movement = data.mov + data.block,
 			listAprox = {
 				sqvolumen: [30, 54, 80, 90, 100],
 				sqpeaking: [25, 42, 60, 71, 82, 89, 94, 100],
@@ -52,7 +51,7 @@ const GenerateDisc = () => {
 			const numAprox = aprox[i];
 			const weightTotal = parseFloat((data.weightTotal * numAprox) / 100);
 
-			createDisc(data, weightTotal, weightBar, i);
+			createDisc(data, weightTotal, i);
 		}
 	};
 
