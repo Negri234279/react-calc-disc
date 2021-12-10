@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import CalcDisc from './views/all/pages/DiscCalc/CalcDisc';
 import Aprox from './views/all/pages/AproxCalc/Aprox';
@@ -9,14 +9,14 @@ import './styles/app.scss';
 const App = () => {
 	return (
 		<div className='container'>
-			<Router>
+			<BrowserRouter>
 				<Navbar />
-				<Switch>
-					<Route path='/' exact component={CalcDisc} />
-					<Route path='/aprox' exact component={Aprox} />
-					<Route path='*' component={NoMatch} />
-				</Switch>
-			</Router>
+				<Routes>
+					<Route path='/' element={<CalcDisc />} />
+					<Route path='/aprox' element={<Aprox />} />
+					<Route path='*' element={<NoMatch />} />
+				</Routes>
+			</BrowserRouter>
 		</div>
 	);
 };
