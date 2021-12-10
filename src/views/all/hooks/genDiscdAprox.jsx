@@ -1,74 +1,72 @@
 /**
  * 
- * @param {number} data props datos formulario
- * @param {number} weightAprox peso formulario
- * @param {string} index #Indice repeticion funcion
+ * @param {string} data Datos del formulario
+ * @param {number} weightTotal Peso discos total
+ * @param {number} weightBar Peso de barra
+ * @param {string} index Indice repeticion funcion
  */
-export const createDisc = (data, weightAprox, index) => {
+export const createDisc = (data, weightTotal, weightBar, index) => {
 
-    let weightTotal = parseFloat(parseInt(weightAprox / 2)),
-		generateDisc = document.querySelector(`#container-${index}`),
+	const generateDisc = document.querySelector(`#container-${index}`);
+	let weightPlates = (weightTotal - weightBar) / 2,
 		numDisc25 = data.disc25,
 		numDisc20 = data.disc20,
 		numDisc15 = data.disc15,
 		numDisc10 = data.disc10,
 		numDisc5 = data.disc5,
-		numBumper = parseInt(data.bumper),
-		weightTotal2;
+		numBumper = parseInt(data.bumper);
+
+	if (weightTotal.toString().endsWith('2')) weightPlates += 0.25;
+	else if (weightTotal.toString().endsWith('5')) weightPlates += 0.5;
+	else if (weightTotal.toString().endsWith('7')) weightPlates += 0.75;
 
     if (numBumper === 20) {
-        weightTotal -= 10;
+        weightPlates -= 10;
         generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-b10"></div>');
-    }
-
-    if (numBumper === 30) {
-        weightTotal -= 15;
+    } else if (numBumper === 30) {
+        weightPlates -= 15;
         generateDisc.insertAdjacentHTML('beforeend', '<div id="container-disc-b15"></div>');
     }
 	
-    while (weightTotal > 0) {
+    while (weightPlates > 0) {
         switch (true) {
-			case weightTotal >= 25 && numDisc25 > 0:
-				weightTotal -= 25;
+			case weightPlates >= 25 && numDisc25 > 0:
+				weightPlates -= 25;
 				numDisc25 -= 1;
 				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-25"></div>');
 				break;
-			case weightTotal >= 20 && numDisc20 > 0:
-				weightTotal -= 20;
+			case weightPlates >= 20 && numDisc20 > 0:
+				weightPlates -= 20;
 				numDisc20 -= 1;
 				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-20"></div>');
 				break;
-			case weightTotal >= 15 && numDisc15 > 0:
-				weightTotal -= 15;
+			case weightPlates >= 15 && numDisc15 > 0:
+				weightPlates -= 15;
 				numDisc15 -= 1;
 				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-15"></div>');
 				break;
-			case weightTotal >= 10 && numDisc10 > 0:
-				weightTotal -= 10;
+			case weightPlates >= 10 && numDisc10 > 0:
+				weightPlates -= 10;
 				numDisc10 -= 1;
 				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-10"></div>');
 				break;
-			case weightTotal >= 5 && numDisc5 > 0:
-				weightTotal -= 5;
+			case weightPlates >= 5 && numDisc5 > 0:
+				weightPlates -= 5;
 				numDisc5 -= 1;
 				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-5"></div>'	);
 				break;
+			case weightPlates >= 2.5:
+				weightPlates -= 2.5;
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-2"></div>');
+				break;
+			case weightPlates >= 1.25:
+				weightPlates -= 1.25;
+				generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-1"></div>');
+				break;
 			default:
-				console.log('break: ' + weightTotal);
-				weightTotal2 = weightTotal;
-				weightTotal = 0;
+				weightPlates = 0;
 				break;
 		}
-    }
-	
-	if (weightTotal2 >= 2.5) {
-        weightTotal2 -= 2.5;
-		generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-2"></div>');
-    }
-
-	if (weightTotal2 >= 1) {
-        weightTotal2 -= 1;
-		generateDisc.insertAdjacentHTML('beforeend','<div id="container-disc-1"></div>');
     }
 
 }

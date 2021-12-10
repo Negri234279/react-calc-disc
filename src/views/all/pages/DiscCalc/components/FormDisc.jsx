@@ -30,18 +30,17 @@ const FormDisc = () => {
 	const handleChange = nextChecked => setChecked(nextChecked);
 
 	/**
-	 * Funcion que genera los discos
-	 * @param {number} data Valores de los discos
-	 * @param {number} weightTotal Peso de los discos
-	 * @param generateDisc Variable para crear los discos
+	 * Formulario de los discos
+	 * @param {string} data Valores del formulario
 	 */
 	const onSubmit = (data) => {
 		
-		const weightTotal = data.weightTotal - data.weightBar;
+		const weightTotal = data.weightTotal,
+			weightBar = data.weightBar;
 
 		document.querySelector('#container-0').textContent = '';
 
-		createDisc(data, weightTotal, 0);
+		createDisc(data, weightTotal, weightBar, 0);
 
 	};
 
