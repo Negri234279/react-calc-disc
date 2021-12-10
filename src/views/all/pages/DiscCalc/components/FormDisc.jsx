@@ -3,7 +3,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import Switch from 'react-switch';
 import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
-import { createDisc } from '../../../hooks/genDiscdAprox';
+import { generatePlates } from '../../../hooks/generatePlates';
 import '../scss/discContainer.scss';
 import '../../../scss/formDisc.scss';
 import Button from '../../../components/Button/Button';
@@ -39,7 +39,7 @@ const FormDisc = () => {
 
 		document.querySelector('#container-0').textContent = '';
 
-		createDisc(data, weightTotal, 0);
+		generatePlates(data, weightTotal, 0);
 
 	};
 

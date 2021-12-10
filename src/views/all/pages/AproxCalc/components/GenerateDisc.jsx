@@ -5,7 +5,7 @@ import AdvanOpt from '../../../components/AdvanOpt';
 import SimpleOpt from '../../../components/SimpleOpt';
 import Button from '../../../components/Button/Button';
 import MovOpt from './MovOpt';
-import { createDisc } from '../../../hooks/genDiscdAprox';
+import { generatePlates } from '../../../hooks/generatePlates';
 import '../discContainer.scss';
 import '../../../scss/formDisc.scss';
 
@@ -51,7 +51,7 @@ const GenerateDisc = () => {
 			const numAprox = aprox[i];
 			const weightTotal = parseFloat((data.weightTotal * numAprox) / 100);
 
-			createDisc(data, weightTotal, i);
+			generatePlates(data, weightTotal, i);
 		}
 	};
 

@@ -4,7 +4,7 @@
  * @param {number} weightTotal Peso discos total
  * @param {string} index Indice repeticion funcion
  */
-export const createDisc = (data, weightTotal, index) => {
+export const generatePlates = (data, weightTotal, index) => {
 
 	const generateDisc = document.querySelector(`#container-${index}`);
 	let weightPlates = (weightTotal - data.weightBar) / 2,
